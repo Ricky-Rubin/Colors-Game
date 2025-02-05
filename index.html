@@ -9,9 +9,12 @@
 
 <body>
     <button id="start">Start Game</button>
-    <div id="result"></div>
-    <div id="correct"></div>
+    <div id="result" data-testid="gameStatus"></div>
+    <div id="correct" data-testid="score"></div>
     <div id="incorrect"></div>
+    <div class="reset">
+        <button id="reset" data-testid="newGameButton">New Game</button>
+    </div>
 
     <div class="container">
         <div class="matchBox" data-testid="colorBox"></div>

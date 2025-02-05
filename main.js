@@ -6,10 +6,11 @@ const btnFour = document.querySelector('#four');
 const btnFive = document.querySelector('#five');
 const btnSix = document.querySelector('#six');
 const startGame = document.querySelector('#start');
-const result = document.querySelector('#result');
+const result = document.querySelector('[data-testid="gameStatus"]');
 const optionBoard = document.querySelector('[data-testid="colorOption"]');
-const pass = document.querySelector('#correct');
+const pass = document.querySelector('[data-testid="score"]');
 const fail = document.querySelector('#incorrect');
+const newGame = document.querySelector('[data-testid="newGameButton"]');
 
 let correct = 0;
 let incorrect = 0
@@ -78,13 +79,15 @@ function checkMatch(playerChoice) {
 
     setTimeout(() => {
         result.textContent = '';
-    }, 2500);
+    }, 1500);
 
     randomColor();
 }
 
 startGame.addEventListener('click', () => {
     randomColor();
+    pass.textContent = `Correct: ${correct}`;
+    fail.textContent = `Miss: ${incorrect}`
 })
 
 btnOne.addEventListener('click', (event) => {
@@ -110,3 +113,15 @@ btnFive.addEventListener('click', (event) => {
 btnSix.addEventListener('click', (event) => {
     checkMatch(event.target);
 });
+
+newGame.addEventListener('click', () => {
+    correct = 0;
+    incorrect = 0
+    pass.textContent = `${correct}`
+    fail.textContent = `${incorrect}`
+    result.textContent = '';
+    colorBox.style.backgroundColor = 'rgb(252, 250, 250)';
+    buttons.forEach((button) => {
+        button.style.backgroundColor = 'rgb(248, 249, 249)';
+    })
+})
