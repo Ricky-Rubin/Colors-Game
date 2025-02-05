@@ -23,7 +23,7 @@ let round = 1;
 const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix];
 
 function colorShade(colorValue) {
-    let percentageIncrease = Math.random() * 0.30;
+    let percentageIncrease = Math.random() * 0.20;
     let operandDecider = Math.random() > 0.5;
     let newValue = operandDecider ? colorValue - colorValue * percentageIncrease : colorValue + colorValue * percentageIncrease;
     
@@ -92,6 +92,8 @@ startGame.addEventListener('click', () => {
     randomColor();
     pass.textContent = `${correct}`;
     fail.textContent = `${incorrect}`
+    startGame.textContent =`Change Color`;
+    // startGame.style.display = 'none'
 })
 
 btnOne.addEventListener('click', (event) => {
@@ -128,6 +130,7 @@ newGame.addEventListener('click', () => {
     buttons.forEach((button) => {
         button.style.backgroundColor = 'rgb(248, 249, 249)';
     })
+    randomColor();
 })
 
 showMain.addEventListener('click', () => {

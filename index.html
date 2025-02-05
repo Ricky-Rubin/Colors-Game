@@ -10,20 +10,18 @@
 <body>
     <div class="details">
         <div class="others">
-            <button id="start">Start Game</button>
-            <div id="result" data-testid="gameStatus"></div>
+            <div class="start-container">
+                <button id="start">Start Game</button>
+            </div>
+            <div id="result">Verdict: <span data-testid="gameStatus" class="verdict"></span></div>
             <div class="correct">Correct: <span data-testid="score">0</span></div>
             <div class="incorrect">Missed: <span id="incorrect">0</span></div>
-    
-            <!-- <div class="reset">
-                <button id="reset" data-testid="newGameButton">New Game</button>
-            </div> -->
         </div>
     </div>
 
     <div class="container">
         <div class="slide-one">
-            <h1>Welcome to a game of colors.</h1>
+            <h1>Welcome to a game of <span class="c">C</span><span class="o">O</span><span class="l">L</span><span class="o2">O</span><span class="r">R</span><span class="s">S</span></h1>
             <div class="tab" data-testid="gameInstructions">
                 <p class="top">How to Play:</p>
                 <p>The game features a big board that displays a target color</p>
@@ -32,6 +30,7 @@
                 <p>You are to choose the tab with a color that matches the exact target color</p>
                 <p>You are awarded a point for every correct match</p>
                 <p>You can stretch the options container to have a better view of the colors</p>
+                <p>Click Start Game to Begin</p>
                 <div class="continue">
                     <button id="continue">Continue</button>
                 </div>
