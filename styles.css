@@ -35,7 +35,7 @@ body {
     padding: 5px;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(135, 135, 230);
+    background-color: rgb(206, 206, 248);
     margin: 15px;
     border-radius: 10px;
 }
