@@ -11,6 +11,10 @@ const optionBoard = document.querySelector('[data-testid="colorOption"]');
 const pass = document.querySelector('[data-testid="score"]');
 const fail = document.querySelector('#incorrect');
 const newGame = document.querySelector('[data-testid="newGameButton"]');
+const showMain = document.querySelector('#continue');
+const slideOne = document.querySelector('.slide-one');
+const details = document.querySelector('.details');
+const reset = document.querySelector('.reset');
 
 let correct = 0;
 let incorrect = 0
@@ -86,8 +90,8 @@ function checkMatch(playerChoice) {
 
 startGame.addEventListener('click', () => {
     randomColor();
-    pass.textContent = `Correct: ${correct}`;
-    fail.textContent = `Miss: ${incorrect}`
+    pass.textContent = `${correct}`;
+    fail.textContent = `${incorrect}`
 })
 
 btnOne.addEventListener('click', (event) => {
@@ -124,4 +128,10 @@ newGame.addEventListener('click', () => {
     buttons.forEach((button) => {
         button.style.backgroundColor = 'rgb(248, 249, 249)';
     })
+})
+
+showMain.addEventListener('click', () => {
+    slideOne.style.display = 'none';
+    [colorBox, details, reset].forEach((one) => one.style.display = 'block');
+    optionBoard.style.display = 'grid';
 })

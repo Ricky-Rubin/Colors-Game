@@ -8,15 +8,36 @@
 </head>
 
 <body>
-    <button id="start">Start Game</button>
-    <div id="result" data-testid="gameStatus"></div>
-    <div id="correct" data-testid="score"></div>
-    <div id="incorrect"></div>
-    <div class="reset">
-        <button id="reset" data-testid="newGameButton">New Game</button>
+    <div class="details">
+        <div class="others">
+            <button id="start">Start Game</button>
+            <div id="result" data-testid="gameStatus"></div>
+            <div class="correct">Correct: <span data-testid="score">0</span></div>
+            <div class="incorrect">Missed: <span id="incorrect">0</span></div>
+    
+            <!-- <div class="reset">
+                <button id="reset" data-testid="newGameButton">New Game</button>
+            </div> -->
+        </div>
     </div>
 
     <div class="container">
+        <div class="slide-one">
+            <h1>Welcome to a game of colors.</h1>
+            <div class="tab" data-testid="gameInstructions">
+                <p class="top">How to Play:</p>
+                <p>The game features a big board that displays a target color</p>
+                <p>Below the target color, you'll see six tabs in a separate board</p>
+                <p>Each tab is a button, and an option</p>
+                <p>You are to choose the tab with a color that matches the exact target color</p>
+                <p>You are awarded a point for every correct match</p>
+                <p>You can stretch the options container to have a better view of the colors</p>
+                <div class="continue">
+                    <button id="continue">Continue</button>
+                </div>
+            </div>
+        </div>
+
         <div class="matchBox" data-testid="colorBox"></div>
 
         <div class="optionsBox" data-testid="colorOption">
@@ -43,6 +64,10 @@
             <div class="option four">
                 <button class="btn" id="six"></button>
             </div>
+        </div>
+
+        <div class="reset">
+            <button id="reset" data-testid="newGameButton">New Game</button>
         </div>
     </div>
 </body>
