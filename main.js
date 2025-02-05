@@ -8,6 +8,12 @@ const btnSix = document.querySelector('#six');
 const startGame = document.querySelector('#start');
 const result = document.querySelector('#result');
 const optionBoard = document.querySelector('[data-testid="colorOption"]');
+const pass = document.querySelector('#correct');
+const fail = document.querySelector('#incorrect');
+
+let correct = 0;
+let incorrect = 0
+let round = 1;
 
 const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix];
 
@@ -60,10 +66,15 @@ function checkMatch(playerChoice) {
     if (colorBox.style.backgroundColor === playerChoice.style.backgroundColor) {
         match = true;
         result.textContent = 'Correct Match!'
+        correct++
     } else {
         match = false;
         result.textContent = 'Oops! You missed that one.'
+        incorrect++
     }
+
+    pass.textContent = `${correct}`;
+    fail.textContent = `${incorrect}`
 
     setTimeout(() => {
         result.textContent = '';
