@@ -6,11 +6,13 @@ const btnFour = document.querySelector('#four');
 const btnFive = document.querySelector('#five');
 const btnSix = document.querySelector('#six');
 const startGame = document.querySelector('#start');
+const result = document.querySelector('#result');
+const optionBoard = document.querySelector('[data-testid="colorOption"]');
 
-const buttons = [one, two, three, four, five, six];
+const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix];
 
 function colorShade(colorValue) {
-    let percentageIncrease = Math.random() * 0.25;
+    let percentageIncrease = Math.random() * 0.30;
     let operandDecider = Math.random() > 0.5;
     let newValue = operandDecider ? colorValue - colorValue * percentageIncrease : colorValue + colorValue * percentageIncrease;
     
@@ -36,12 +38,64 @@ function randomColor() {
 
     const optionColorShades = [
         { r: r, g: g, b: b},
-        { r: red, g: g, b: b},
-        { r: r, g: green, b: blue},
-        { r: red, g: g, b: blue},
-        { r: r, g: green, b: b},
-        { r: r, g: g, b: blue}
+        { r: colorShade(r), g: colorShade(g), b: colorShade(b)},
+        { r: colorShade(r), g: colorShade(g), b: colorShade(b)},
+        { r: colorShade(r), g: colorShade(g), b: colorShade(b)},
+        { r: colorShade(r), g: colorShade(g), b: colorShade(b)},
+        { r: colorShade(r), g: colorShade(g), b: colorShade(b)}
     ]
+
+    optionColorShades.sort(() => Math.random() - 0.5);
+
+    for (let i = 0; i < optionColorShades.length; i++) {
+        const color = optionColorShades[i];
+
+        buttons[i].style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`
+    }
 }
 
-startGame.addEventListener('click', randomColor)
+let match = false;
+
+function checkMatch(playerChoice) {
+    if (colorBox.style.backgroundColor === playerChoice.style.backgroundColor) {
+        match = true;
+        result.textContent = 'Correct Match!'
+    } else {
+        match = false;
+        result.textContent = 'Oops! You missed that one.'
+    }
+
+    setTimeout(() => {
+        result.textContent = '';
+    }, 2500);
+
+    randomColor();
+}
+
+startGame.addEventListener('click', () => {
+    randomColor();
+})
+
+btnOne.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
+
+btnTwo.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
+
+btnThree.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
+
+btnFour.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
+
+btnFive.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
+
+btnSix.addEventListener('click', (event) => {
+    checkMatch(event.target);
+});
