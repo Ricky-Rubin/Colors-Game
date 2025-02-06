@@ -17,8 +17,7 @@ const details = document.querySelector('.details');
 const reset = document.querySelector('.reset');
 
 let correct = 0;
-let incorrect = 0
-let round = 1;
+let incorrect = 0;
 
 const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix];
 
