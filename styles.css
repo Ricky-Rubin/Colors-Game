@@ -210,4 +210,14 @@ h1 {
     .others {
         flex-direction: column;
     }
+
+    .matchBox,
+    .optionsBox {
+        width: 365px;
+        height: 160px;
+    }
+
+    .verdict {
+        width: 215px;
+    }
 }
