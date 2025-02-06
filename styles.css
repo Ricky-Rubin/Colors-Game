@@ -201,3 +201,13 @@ h1 {
     width: 100%;
     height: 100%;
 }
+
+.responsive {
+    display: flex;
+}
+
+@media (max-width: 650px) {
+    .others {
+        flex-direction: column;
+    }
+}
