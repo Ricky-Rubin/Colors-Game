@@ -230,5 +230,6 @@ h1 {
     .tab {
         width: 330px;
         font-size: 14px;
+        line-height: 1.3;
     }
 }
